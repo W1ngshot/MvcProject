@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MvcProject.Models;
 using MvcProject.Models.UserModels;
 
 namespace MvcProject.Data;

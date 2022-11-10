@@ -14,6 +14,9 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Add.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Give.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Index.cshtml" />
     </ItemGroup>
 
 </Project>

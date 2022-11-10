@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MvcProject.Models;
 using MvcProject.Models.UserModels;
 
 namespace MvcProject.Controllers;
@@ -17,6 +17,16 @@ public class UserController : Controller
         _signInManager = signInManager;
     }
 
+    private async Task SignInWithClaimsAsync(User user, bool rememberMe = false)
+    {
+        var claims = new List<Claim>()
+        {
+            new(ClaimTypes.Email, user.Email),
+            new(ClaimTypes.Role, user.Role)
+        };
+        await _signInManager.SignInWithClaimsAsync(user, rememberMe, claims);
+    }
+    
     [HttpGet]
     public IActionResult Index() => View();
 
@@ -34,11 +44,10 @@ public class UserController : Controller
             return View(model);
         
         var user = new User { Email = model.Email, UserName = model.Email};
-        
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-            await _signInManager.SignInAsync(user, false);
+            await SignInWithClaimsAsync(user);
             return RedirectToAction("Index");
         }
         foreach (var error in result.Errors)
@@ -58,10 +67,12 @@ public class UserController : Controller
     {
         if (!ModelState.IsValid) 
             return View(model);
-        var result = 
-            await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+        
+        var user = await _userManager.FindByEmailAsync(model.Email);
+        var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
         if (result.Succeeded)
         {
+            await SignInWithClaimsAsync(user, model.RememberMe);
             return RedirectToAction("Index");
         }
         

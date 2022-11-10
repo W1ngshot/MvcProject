@@ -1,11 +1,13 @@
-﻿@{
+﻿@using System.Security.Claims
+@{
     ViewData["Title"] = "Home Page";
 }
  
  
 @if(User.Identity!.IsAuthenticated)
 {
-    <p>@User.Identity.Name</p>
+    <p>@User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email)</p>
+    <p>@User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)</p>
     <form method="get" asp-controller="User" asp-action="Edit">
         <input type="submit" value="Изменить данные"/>
     </form>

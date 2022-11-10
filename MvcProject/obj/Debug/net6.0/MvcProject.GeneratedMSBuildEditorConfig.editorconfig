@@ -15,18 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\MvcProject\MvcProject
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/MvcProject/MvcProject/Views/Role/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBZGQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/MvcProject/MvcProject/Views/Role/Give.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxHaXZlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/MvcProject/MvcProject/Views/Role/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/MvcProject/MvcProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
