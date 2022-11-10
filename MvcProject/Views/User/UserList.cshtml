@@ -1,0 +1,8 @@
+﻿@model List<MvcProject.Models.UserModels.User>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>@user.Id @user.Email</li>
+    }
+</ul>

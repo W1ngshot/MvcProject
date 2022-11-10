@@ -1,0 +1,8 @@
+﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<ul>
+    @foreach (var role in Model)
+    {
+        <li>@role.Name</li>
+    }
+</ul>
